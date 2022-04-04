@@ -1,0 +1,20 @@
+.container{
+    background-color: aquamarine;
+    margin: auto;
+    width: 30%;
+}
+
+label{
+    float: left;
+    width: 80px;
+    margin-right: 5%;
+}
+
+.linea{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.form{
+    
+}

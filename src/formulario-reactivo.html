@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/formulario-reactivo.css" media="screen" />
+    <title>Formulario</title>
+</head>
+<body class="body">
+    <script type="text/javascript" src="./js/formulario-reactivo.js"></script>
+    <script>getPeople();</script>
+    
+    <h1>Personas</h1>
+    <h2>A continuación inserte sus datos</h2>
+    <div class="container">
+        <div class="container__column1">
+            <p>Usuario</p>
+            <p>Apellido</p>
+            <p>Contraseña</p>
+            <p>Nombre</p>
+            <p>Correo de empresa</p>
+            <p>Correo personal</p>
+            <p>Ciudad</p>
+            <p>Activo</p>
+            <p>Fecha creación</p>
+            <p>URL imagen</p>
+            <p>Fecha finalización</p>
+        </div>
+        <form>
+            <div class="container__column2">
+                <p><input type="text" id="user"></p>
+                <p><input type="text" id="lastname"></p>
+                <p><input type="password" id="password"></p>
+                <p><input type="text" id="name"></p> 
+                <p><input type="text" id="businessEmail"></p>
+                <p><input type="text" id="ownEmail"></p>
+                <p><input type="text" id="city"></p>
+                <p><input type="checkbox" id="active"></p>
+                <p class="date"><input type="date" id="createDate"></p>
+                <p><input type="text" id="image"></p>
+                <p class="date"><input type="date" id="endDate"></p>
+            </div>
+            <button class="button__send--color" type="button" onclick="createPerson()">Enviar</button>
+            <button class="button__clear--color" type="button" onclick="clearForm()">Limpiar</button>
+        </form>
+    </div>
+    <div id="people">
+
+    </div>
+</body>
+</html>

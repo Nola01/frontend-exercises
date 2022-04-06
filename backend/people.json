@@ -1,0 +1,32 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "user": "Juan123",
+      "lastname": "García",
+      "password": "1234",
+      "name": "Juan",
+      "businessEmail": "juan@business.com",
+      "ownEmail": "juan@email.com",
+      "city": "Málaga",
+      "active": "True",
+      "createDate": "02/08/2021",
+      "image": "picture1",
+      "endDate": "22/06/2022"
+    },
+    {
+      "user": "Maria1234",
+      "lastname": "Fernandez",
+      "password": "maria0",
+      "name": "María",
+      "businessEmail": "maria@business.com",
+      "ownEmail": "maria@email.com",
+      "city": "Barcelona",
+      "active": "False",
+      "createDate": "19/02/2021",
+      "url": "www.maria.com",
+      "endDate": "29/11/2022",
+      "id": 2
+    }
+  ]
+}

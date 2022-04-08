@@ -1,0 +1,58 @@
+body {
+    background-image: url('https://global-uploads.webflow.com/5d64efaf6ed3eef3fca10861/5dbfe26c5102da1b585c3461_annie-spratt-QckxruozjRg-unsplash.jpg');
+}
+
+#title {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+#description {
+    text-align: center;
+    font-style: italic;
+    color: white;
+}
+
+#form{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+form {
+    background: black;
+    opacity: 0.8;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+.form-input {
+    margin: auto;
+    padding: 10px;
+}
+
+#survey_form {
+    display: block;
+    background-color: black;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: larger;
+    margin-left: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input, select, textarea {
+    font-size: larger;
+    width: 500px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+    max-width: 450px;
+}

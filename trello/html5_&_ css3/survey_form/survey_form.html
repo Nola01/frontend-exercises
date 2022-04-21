@@ -14,17 +14,17 @@
         <form id="survey-form">
             <div class="form-input">
                 <label id="name-label">Name</label>
-                <input id ="name" type="text" placeholder="Enter your name">
+                <input id ="name" type="text" placeholder="Enter your name" required>
             </div>
 
             <div class="form-input">
                 <label id="email-label">Email</label>
-                <input id ="email" type="email" placeholder="Enter your email">
+                <input id ="email" type="email" placeholder="Enter your email" required>
             </div>  
 
             <div class="form-input">
                 <label id="number-label">Age</label>
-                <input id ="name" type="number" placeholder="Age" required min="18" max="99">
+                <input id ="number" type="number" placeholder="Age" required min="18" max="99">
             </div>
 
             <div class="form-input">
@@ -75,6 +75,10 @@
             <div class="form-input">
                 <label>Any comments or suggestions?</label>
                 <textarea id ="comments" type="text" placeholder="Enter your comment here..."></textarea>
+            </div>
+
+            <div class="form-input">
+                <button id="submit" type="submit">Submit</button>
             </div>
         </form>
     </div>

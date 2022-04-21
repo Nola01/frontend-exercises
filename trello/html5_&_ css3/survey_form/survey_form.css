@@ -56,3 +56,10 @@ input, select, textarea {
     margin-top: 10px;
     max-width: 450px;
 }
+
+#submit {
+    background-color: green;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+}

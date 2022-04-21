@@ -1,0 +1,110 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blanchedalmond;
+    width: 100%;
+}
+
+#header-img {
+    display: flex;
+    max-width: 20%;
+    max-height: 50%;
+}
+
+ul {
+    width: 150%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    margin-top: 50px;
+}
+
+input {
+    margin: 10px;
+}
+
+#submit {
+    background-color: goldenrod;
+}
+
+#feature {
+    display: flex;
+    justify-content: center;
+}
+
+#features .description {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+#features .icon {
+    max-width: 8%;
+    max-height: 10%;
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
+
+#how-it-works {
+    display: flex;
+    justify-content: center;
+}
+
+#pricing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
+#pricing .trombone {
+    border: 2px solid black;
+    width: calc(100% / 3);
+    text-align: center;
+    margin: 10px;
+}
+
+button {
+    background-color: goldenrod;
+}
+
+@media (max-width: 500px) {
+    #features .icon {
+        visibility: hidden;
+    }
+}

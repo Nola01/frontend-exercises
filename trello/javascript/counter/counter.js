@@ -71,7 +71,7 @@ countDown.addEventListener('click', () => {
 
 setButton.addEventListener('click', () => {
     //console.log('set');
-    count = setTo.value;
+    count = parseInt(setTo.value);
     number.value = count;
     setTo.value = '';
 })

@@ -1,0 +1,76 @@
+.container {
+  font-family: 'Tapestry', cursive;
+}
+
+.types {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.types button {
+  font-size: 20px;
+}
+
+.types input {
+  width: 50%;
+}
+
+#list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#list p {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+#grass:focus {
+  background-color: #008000;
+  color: white;
+}
+
+#grass:hover {
+  color: #008000;
+}
+
+#fire:focus {
+  background-color: #8b0000;
+  color: white;
+}
+
+#fire:hover {
+  color: #8b0000;
+}
+
+#water:focus {
+  background-color: #5f9ea0;
+  color: black;
+}
+
+#water:hover {
+  color: #5f9ea0;
+}
+
+#ground:focus {
+  background-color: #cd853f;
+  color: black;
+}
+
+#ground:hover {
+  color: #cd853f;
+}
+
+.filter {
+  display: none;
+}
+/*# sourceMappingURL=search_on_type.css.map */

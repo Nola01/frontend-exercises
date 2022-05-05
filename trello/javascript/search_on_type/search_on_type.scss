@@ -1,0 +1,70 @@
+$grass-color: #008000;
+$fire-color: #8b0000;
+$water-color: #5f9ea0;
+$ground-color: #cd853f;
+
+.container {
+    font-family: 'Tapestry', cursive;
+}
+
+.types {
+    display: flex;
+    margin-bottom: 20px;
+    button {
+        font-size: 20px;
+    }
+    input{
+        width: 50%;
+    }
+}
+
+#list {
+    display: flex;
+    flex-wrap: wrap;
+    p {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid black;
+        width: fit-content;
+    }
+}
+ 
+#grass:focus {
+    background-color: $grass-color;
+    color: white;
+}
+
+#grass:hover {
+    color: $grass-color;
+}
+
+#fire:focus {
+    background-color: $fire-color;
+    color: white;
+}
+
+#fire:hover {
+    color: $fire-color;
+}
+
+#water:focus {
+    background-color: $water-color;
+    color: black;
+}
+
+#water:hover {
+    color: $water-color;
+}
+
+#ground:focus {
+    background-color: $ground-color;
+    color: black;
+}
+
+#ground:hover {
+    color: $ground-color;
+}
+
+.filter{
+    display: none;
+}

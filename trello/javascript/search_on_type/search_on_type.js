@@ -7,32 +7,15 @@ const water = document.querySelector('#water');
 const ground = document.querySelector('#ground');
 const clean = document.querySelector('#clean');
 
-grass.addEventListener('click', () => {
-    document.getElementById('list').innerHTML = ""
-    let selectedType = 'grass';
-    //console.log(selectedType)
-    getAllPokemon(selectedType)
-})
+const types = [grass, fire, water, ground];
 
-fire.addEventListener('click', () => {
-    document.getElementById('list').innerHTML = ""
-    let selectedType = 'fire';
-    //console.log(selectedType)
-    getAllPokemon(selectedType)
-})
-
-water.addEventListener('click', () => {
-    document.getElementById('list').innerHTML = ""
-    let selectedType = 'water';
-    //console.log(selectedType)
-    getAllPokemon(selectedType)
-})
-
-ground.addEventListener('click', () => {
-    document.getElementById('list').innerHTML = ""
-    let selectedType = 'ground';
-    //console.log(selectedType)
-    getAllPokemon(selectedType)
+types.forEach((type) => {
+    type.addEventListener('click', () => {
+        document.getElementById('list').innerHTML = ""
+        let selectedType = type.id;
+        console.log(selectedType);
+        getAllPokemon(selectedType)
+    })
 })
 
 clean.addEventListener('click', () => {
@@ -41,7 +24,7 @@ clean.addEventListener('click', () => {
     firstList()
 })
 
-const firstList = async () => {
+const firstList = () => {
     fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=100`)
     .then(response => response.json())
     .then(data => {
@@ -55,7 +38,6 @@ const firstList = async () => {
 
 firstList()
 
-
 const getAllPokemon = (selectedType) => {
     fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=100`)
     .then(response => response.json())
@@ -63,9 +45,8 @@ const getAllPokemon = (selectedType) => {
         const pokemonList = data.results;
         getPokemonDetails(pokemonList, selectedType)
         return pokemonList;
-    })
-    
-}
+    })    
+}   
 
 const getPokemonDetails = async (pokemonList, selectedType) => {
     try {
@@ -108,8 +89,16 @@ const createPokemonList = (pokemon) => {
     list.append(p)
 }
 
+const debounce = (callback, wait) => {
+    return (...args) => {
+        setTimeout(() => {
+            callback(...args)
+        }, wait)
+    }
+}
+
 const filterPokemonByName = () => {
-    document.addEventListener("keyup", e => {
+    document.addEventListener("keyup", debounce(e => {
         document.querySelectorAll("#pokemon").forEach(pokemon => {
             pokemon.textContent.toLowerCase().includes(e.target.value.toLowerCase())
             ?
@@ -117,7 +106,7 @@ const filterPokemonByName = () => {
             :
             pokemon.classList.add("filter")
         })
-    })
+    }, 2000))
 
 }
 

@@ -193,19 +193,22 @@ console.log('Ejercicio 6: ', round(2.1233, 2));
 
 const falsyValues = (obj, f) => {
 
+    const newObject = {}
+    
     for (const key in obj) {
         if (Object.hasOwnProperty.call(obj, key)) {
             // console.log('objeto', obj)
             if (!f(obj[key])) {
-                delete obj[key]
+            newObject[key] = obj[key]
+            // delete obj[key]
             }
         }
     }
 
-    return obj
+    return newObject
 }
-
-const result = falsyValues({a: 0, b: '', c: 22}, x => x)
+const obj = {a: 0, b: '', c: 22}
+const result = falsyValues(obj, x => x)
 
 console.log('Ejercicio 7: ', result);
 
@@ -296,7 +299,7 @@ const removeHTMLTags = (string) => {
         return regex[2] + ' ' + regex[6]
 }
 
-console.log(removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>'));
+console.log('Ejercicio 10: ', removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>'));
 
 
 
@@ -313,4 +316,14 @@ console.log(removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>
 
  */
 
+
+const splitArrayIntoChunks = (array, leng) => {
+    const chunks = []
+    for (let i = 0; i < array.length; i++) {
+        chunks.push(array.slice(i, i + leng))
+    }
+    return chunks
+}
+
+console.log('Ejercicio 11: ', splitArrayIntoChunks([1, 2, 3, 4, 5, 6, 7], 3))
 

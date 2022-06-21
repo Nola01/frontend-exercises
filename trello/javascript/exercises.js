@@ -210,3 +210,101 @@ const result = falsyValues({a: 0, b: '', c: 22}, x => x)
 console.log('Ejercicio 7: ', result);
 
 
+/**
+    Ejercicio 8
+    Crea una función que convierta un número de bytes en un formato con valores legibles ('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB')
+
+    La función debe tener 2 parámetros:
+    Primer parámetro debe ser el número de bytes
+    Segundo parámetro debe ser un número especificando la cantidad de dígitos a los que se debe truncar el 
+    resultado (esto se puede hacer con Number.prototype.toPrecision()). Por defecto, este parámetro debe de tener un valor de 3.
+
+    Ejemplo de uso de la función:
+    const result = fromBytesToFormattedSizeUnits(1000);
+    console.log(result); // 1KB
+    
+    const result = fromBytesToFormattedSizeUnits(123456789);
+    console.log(result); // 123MB
+    
+    const result = fromBytesToFormattedSizeUnits(-12145489451.5932, 5);
+    console.log(result); // -12.145GB
+ 
+
+ */
+
+const formatBytes = (bytes, truncTo = 3) => {
+    const f = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    let i = 0
+    for (i = 0; bytes >= 1024 || bytes <= -1024; i++) {
+        bytes = bytes / 1024
+    }
+    
+    return (bytes.toPrecision(truncTo) + f[i]);
+        console.log(i)
+}
+
+console.log('Ejercicio 8: ', formatBytes(123456789));
+console.log('Ejercicio 8: ', formatBytes(-12145489451.5932, 5));
+
+/**
+    Ejercicio 9
+    Crea una función que a partir de un objeto de entrada, retorne un objeto asegurándose que las claves del objeto estén en lowercase.
+    La función debe tener un objeto como único parámetro.
+
+    Ejemplo de uso de la función:
+    const myObject = { NamE: 'Charles', ADDress: 'Home Street' };
+    const myObjLowercase = toLowercaseKeys(myObject);
+    console.log(myObjLowercase); // { name: 'Charles', address: 'Home Street' }
+
+ */
+
+const keysToLowerCase = (obj) => {
+    for (const key in obj) {
+        if (Object.hasOwnProperty.call(obj, key)) {
+            const newKey = key.toLowerCase()
+                // console.log(newKey)
+                    obj[newKey] = obj[key]
+                // console.log('new', obj)
+            delete obj[key]
+                
+        }
+    }
+
+    return obj
+}
+
+console.log('Ejercicio 9: ', keysToLowerCase({ NamE: 'Charles', ADDress: 'Home Street' }))
+
+
+
+
+/**
+    Ejercicio 10
+    Crea una función que elimine las etiquetas html o xml de un string.
+    La función debe tener un string como único parámetro.
+
+    Ejemplo de uso de la función:
+    const result = removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>');
+    
+    console.log(result); // lorem ipsum
+
+ */
+
+    
+
+
+
+/**
+    Ejercicio 11
+    Crea una función que tome un array como parametro y lo divida en arrays nuevos con tantos elementos como sean especificados.
+    La función debe tener dos parámetros:
+    El primer parámetro es el array entero que se quiere dividir.
+    El segundo parámetro es el número de elementos que deben tener los arrays en los que se divida el array original del primer parámetro.
+
+    Ejemplo de uso de la función:
+    const result = splitArrayIntoChunks([1, 2, 3, 4, 5, 6, 7], 3);
+    console.log(result); // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7 ] ]
+
+ */
+
+

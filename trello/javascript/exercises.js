@@ -138,7 +138,7 @@ console.log('Ejercicio 5: ', spanishCities);
     Crea una función que redondee un número float a un número específico de decimales. 
     La función debe tener dos parámetros: 
     Primer parámetro es un número float con x decimales
-    Según parámetro es un int que indique el número de decimales al que redondear
+    Segundo parámetro es un int que indique el número de decimales al que redondear
     Evitar usar el método toFixed()
 
     Ejemplo de uso de la función:
@@ -170,10 +170,43 @@ const round = (number, roundTo) => {
     return parseFloat(int)
     }
 }
-round(2.1233, 3)
-// console.log(round(2.1233, 2));
+// round(2.1233, 3)
+console.log('Ejercicio 6: ', round(2.1233, 2));
 
 
+/**
 
+    Ejercicio 7
+    Crea una función que retorne los campos de un objeto que equivalgan a un valor “falsy” después de ser ejecutados por una función específica.
+
+    La función debe tener dos parámetros:
+    Primer parámetro es un objeto con x número de campos y valores
+    Segundo parametro es una funcion que retorne un booleano, que se tiene que aplicar al objeto del primer parámetro
+
+    Ejemplo de uso de la función:
+    const result = returnFalsyValues({ a: 1, b: '2', c: 3 }, x => typeof x === 'string')
+    
+    console.log(result); // {a: 1, c: 3}
+
+ */
+
+
+const falsyValues = (obj, f) => {
+
+    for (const key in obj) {
+        if (Object.hasOwnProperty.call(obj, key)) {
+            // console.log('objeto', obj)
+            if (!f(obj[key])) {
+                delete obj[key]
+            }
+        }
+    }
+
+    return obj
+}
+
+const result = falsyValues({a: 0, b: '', c: 22}, x => x)
+
+console.log('Ejercicio 7: ', result);
 
 

@@ -290,7 +290,13 @@ console.log('Ejercicio 9: ', keysToLowerCase({ NamE: 'Charles', ADDress: 'Home S
 
  */
 
-    
+const removeHTMLTags = (string) => {
+    const regex = string.split(/<([^>]+)>([^\<]*?)<\/([^>]+)>/g)
+    // console.log(regex)
+        return regex[2] + ' ' + regex[6]
+}
+
+console.log(removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>'));
 
 
 

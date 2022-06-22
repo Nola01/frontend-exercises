@@ -160,14 +160,14 @@ const round = (number, roundTo) => {
     }
     
     if (roundTo === 0) {
-    return int
+        return int
     } else {
-    int = int.toString() + '.'
-    for (let i = 0; i < roundTo; i++) {
-        int = int + output[i]
-    }
-    //console.log(parseFloat(int))
-    return parseFloat(int)
+        int = int.toString() + '.'
+        for (let i = 0; i < roundTo; i++) {
+            int = int + output[i]
+        }
+        //console.log(parseFloat(int))
+        return parseFloat(int)
     }
 }
 // round(2.1233, 3)
@@ -199,8 +199,7 @@ const falsyValues = (obj, f) => {
         if (Object.hasOwnProperty.call(obj, key)) {
             // console.log('objeto', obj)
             if (!f(obj[key])) {
-            newObject[key] = obj[key]
-            // delete obj[key]
+                newObject[key] = obj[key]
             }
         }
     }
@@ -262,18 +261,15 @@ console.log('Ejercicio 8: ', formatBytes(-12145489451.5932, 5));
  */
 
 const keysToLowerCase = (obj) => {
+    const newObject = {}
     for (const key in obj) {
         if (Object.hasOwnProperty.call(obj, key)) {
-            const newKey = key.toLowerCase()
-                // console.log(newKey)
-                    obj[newKey] = obj[key]
-                // console.log('new', obj)
-            delete obj[key]
-                
+            newObject[key.toLowerCase()] = obj[key]
+            // console.log('new', newObject)   
         }
     }
 
-    return obj
+    return newObject
 }
 
 console.log('Ejercicio 9: ', keysToLowerCase({ NamE: 'Charles', ADDress: 'Home Street' }))
@@ -296,7 +292,7 @@ console.log('Ejercicio 9: ', keysToLowerCase({ NamE: 'Charles', ADDress: 'Home S
 const removeHTMLTags = (string) => {
     const regex = string.split(/<([^>]+)>([^\<]*?)<\/([^>]+)>/g)
     // console.log(regex)
-        return regex[2] + ' ' + regex[6]
+    return regex[2] + ' ' + regex[6]
 }
 
 console.log('Ejercicio 10: ', removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>'));

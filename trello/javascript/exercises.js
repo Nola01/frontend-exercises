@@ -235,14 +235,13 @@ console.log('Ejercicio 7: ', result);
  */
 
 const formatBytes = (bytes, truncTo = 3) => {
-    const f = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
     let i = 0
     for (i = 0; bytes >= 1024 || bytes <= -1024; i++) {
         bytes = bytes / 1024
     }
     
-    return (bytes.toPrecision(truncTo) + f[i]);
-        console.log(i)
+    return (bytes.toPrecision(truncTo) + units[i]);
 }
 
 console.log('Ejercicio 8: ', formatBytes(123456789));

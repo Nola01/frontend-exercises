@@ -19,7 +19,7 @@ const arrNames = [
     {id: 5, name: 'Lala'}
 ]
 
-const name3 = arrNames.filter(name => name.id === 3);
+const name3 = arrNames.find(name => name.id === 3);
 
 console.log('Ejercicio 1: ', name3);
 
@@ -65,7 +65,7 @@ const arrCities = [
     {city: 'Jaén', country: 'Spain', capital: false}
 ]
 
-const arrNoCapital = arrCities.filter(city => !city.capital)
+const arrNoCapital = arrCities.filter(city => !city.capital).map(e => ({city: e.city}))
 
 console.log('Ejercicio 3: ', arrNoCapital);
 
@@ -84,11 +84,7 @@ const arrNumber1 = [1,2,3];
 const arrNumber2 = [1,2,3,4,5];
 const arrNumber3 = [1,4,7,2];
 
-const intersection = arrNumber2.filter(n2 => {
-    if (arrNumber1.includes(n2) && arrNumber3.includes(n2)) {
-        return n2;
-    }
-})
+const intersection = arrNumber2.filter(n2 => arrNumber1.includes(n2) && arrNumber3.includes(n2) ? n2 : null)
 
 console.log('Ejercicio 4: ', intersection);
 
@@ -121,17 +117,11 @@ const arrCities2 = [
     {city: 'Jaén', country: 'Spain', capital: false}
 ]
 
-const noCapital = arrCities2.filter(city => !city.capital && city.country === 'Spain')
+const noCapital = arrCities2.filter(city => !city.capital && city.country === 'Spain').map(city => {return ({city: city.city, isSpain: true})})
 
-const spanishCities = noCapital.map(city => {
-    return ({
-        city: city.city,
-        isSpain: true
-    })
-})
+console.log('Ejercicio 5: ', noCapital);
 
-console.log('Ejercicio 5: ', spanishCities);
-
+// TODO
 
 /**
     Ejercicio 6
@@ -151,26 +141,10 @@ console.log('Ejercicio 5: ', spanishCities);
 
  */
 
-const round = (number, roundTo) => {
-    let output = []
-    let int =  Math.round(number)
-    const decimals = number.toString().split('.')[1]
-    for (let i = 0, len = decimals.length; i < len; i += 1) {
-        output.push(+decimals.charAt(i));
-    }
-    
-    if (roundTo === 0) {
-        return int
-    } else {
-        int = int.toString() + '.'
-        for (let i = 0; i < roundTo; i++) {
-            int = int + output[i]
-        }
-        //console.log(parseFloat(int))
-        return parseFloat(int)
-    }
+const round = (number, roundTo) => {    
+    return Math.round(number * 10**roundTo) / 10**roundTo
 }
-// round(2.1233, 3)
+
 console.log('Ejercicio 6: ', round(2.1233, 2));
 
 
@@ -190,21 +164,25 @@ console.log('Ejercicio 6: ', round(2.1233, 2));
 
  */
 
+// use Object.keys()
 
-const falsyValues = (obj, f) => {
 
-    const newObject = {}
+const falsyValues = (obj, fn) => {
+
+    return Object.values(obj).filter(value => fn(value) ? 'value' : null)  
+
+    // const newObject = {}
     
-    for (const key in obj) {
-        if (Object.hasOwnProperty.call(obj, key)) {
-            // console.log('objeto', obj)
-            if (!f(obj[key])) {
-                newObject[key] = obj[key]
-            }
-        }
-    }
+    // for (const key in obj) {
+    //     if (Object.hasOwnProperty.call(obj, key)) {
+    //         // console.log('objeto', obj)
+    //         if (!f(obj[key])) {
+    //             newObject[key] = obj[key]
+    //         }
+    //     }
+    // }
 
-    return newObject
+    // return newObject
 }
 const obj = {a: 0, b: '', c: 22}
 const result = falsyValues(obj, x => x)
@@ -241,11 +219,13 @@ const formatBytes = (bytes, truncTo = 3) => {
         bytes = bytes / 1024
     }
     
-    return (bytes.toPrecision(truncTo) + units[i]);
+    return (`${bytes.toPrecision(truncTo)} ${units[i]}`);
 }
 
 console.log('Ejercicio 8: ', formatBytes(123456789));
 console.log('Ejercicio 8: ', formatBytes(-12145489451.5932, 5));
+
+// TODO
 
 /**
     Ejercicio 9
@@ -260,15 +240,28 @@ console.log('Ejercicio 8: ', formatBytes(-12145489451.5932, 5));
  */
 
 const keysToLowerCase = (obj) => {
-    const newObject = {}
-    for (const key in obj) {
-        if (Object.hasOwnProperty.call(obj, key)) {
-            newObject[key.toLowerCase()] = obj[key]
-            // console.log('new', newObject)   
-        }
-    }
 
-    return newObject
+//  const lowerCase = Object.entries(obj).reduce(([key, value]) => {
+//      return {[key.toLowerCase()]: value}
+//  })
+
+//  return lowerCase
+  
+  	const newObj = {}
+  
+  	Object.entries(obj).map(([key, value]) => newObj[key.toLowerCase()] = value)
+  
+  	return newObj
+    
+    // const newObject = {}
+    // for (const key in obj) {
+    //     if (Object.hasOwnProperty.call(obj, key)) {
+    //         newObject[key.toLowerCase()] = obj[key]
+    //         // console.log('new', newObject)   
+    //     }
+    // }
+
+    // return newObject
 }
 
 console.log('Ejercicio 9: ', keysToLowerCase({ NamE: 'Charles', ADDress: 'Home Street' }))
@@ -288,15 +281,16 @@ console.log('Ejercicio 9: ', keysToLowerCase({ NamE: 'Charles', ADDress: 'Home S
 
  */
 
-const removeHTMLTags = (string) => {
-    const regex = string.split(/<([^>]+)>([^\<]*?)<\/([^>]+)>/g)
+const removeHTMLTags = (str) => {
+    const regex = str.replace(/<([^>]+)>([^\<]*?)/g, ' ')
     // console.log(regex)
-    return regex[2] + ' ' + regex[6]
+    return regex
 }
 
 console.log('Ejercicio 10: ', removeHTMLTags('<div><span>lorem</span> <strong>ipsum</strong></div>'));
 
 
+// TODO
 
 /**
     Ejercicio 11
@@ -312,13 +306,21 @@ console.log('Ejercicio 10: ', removeHTMLTags('<div><span>lorem</span> <strong>ip
  */
 
 
-const splitArrayIntoChunks = (array, leng) => {
-    const chunks = []
-    for (let i = 0; i < array.length; i++) {
-        chunks.push(array.slice(i, i + leng))
+const splitArrayIntoChunks = (array, len) => {
+
+    const res = [];
+    for (let i = 0; i < array.length; i += len) {
+        const chunk = array.slice(i, i + len);
+        res.push(chunk);
     }
-    return chunks
+    return res;
+
+    // return array.map(e => array.splice(0, len))
 }
 
 console.log('Ejercicio 11: ', splitArrayIntoChunks([1, 2, 3, 4, 5, 6, 7], 3))
+
+
+
+// math, metodos que mutan arrays
 
